@@ -1,17 +1,17 @@
 #include "main.h"
+
 /**
- * print_numbers - Entry point
- *
- * Return: 0 (Success)
-*/
+ * print_numbers - print 0-9
+ * return: void
+ */
+
 void print_numbers(void)
 {
-	char digit = '0';
+	char c;
 
-	while (digit <= '9')
+	for (c = '0'; c <= '9'; c++)
 	{
-		_putchar(digit);
-	       	digit++;
+		_putchar(c);
 	}
 	_putchar('\n');
 }
