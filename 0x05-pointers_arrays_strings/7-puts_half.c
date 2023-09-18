@@ -10,6 +10,7 @@ void puts_half(char *str)
 	int langth = strlen(str);
 	int half;
 
+
 	if (langth % 2 == 0)
 	{
 		for (half = langth / 2; half < langth; half++)
@@ -19,7 +20,7 @@ void puts_half(char *str)
 	}
 	else
 	{
-		for (half = (langth - 1) / 2; half < langth; half++)
+		for (half = (langth + 1) / 2; half < langth; half++)
 		{
 			_putchar(str[half]);
 		}
