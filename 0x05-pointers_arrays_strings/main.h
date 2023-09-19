@@ -14,6 +14,7 @@ void print_array(int *a, int n);
 char *_strcpy(char *dest, char *src);
 int _atoi(char *s);
 void randomPasswordGeneration(int N);
+int main();
 #define MAX_VALUE 100
 
 #endif

@@ -49,3 +49,11 @@ void randomPasswordGeneration(int n)
 		}
 	}
 }
+int main()
+{
+	int n = 10;
+
+	randomPasswordGeneration(n);
+
+	return 0;
+}
