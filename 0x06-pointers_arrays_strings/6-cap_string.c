@@ -11,29 +11,25 @@
 char *cap_string(char *s)
 {
 	int i;
+	int new_word = 1;
 
 	for (i = 0; s[i] != '\0'; i++)
 	{
-		if (s[i] == ' ' ||
-		    s[i] == '\t' ||
-		    s[i] == '\n' ||
-		    s[i] == ',' ||
-		    s[i] == ';' ||
-		    s[i] == '.' ||
-		    s[i] == '!' ||
-		    s[i] == '?' ||
-		    s[i] == '"' ||
-		    s[i] == '(' ||
-		    s[i] == ')' ||
-		    s[i] == '{' ||
-		    s[i] == '}' ||
-		    i == 0)
+		if (isspace(s[i]) || s[i] == ',' || s[i] == ';'
+		|| s[i] == '.' || s[i] == '!' || s[i] == '?'
+		|| s[i] == '"' || s[i] == '(' || s[i] == ')'
+		|| s[i] == '{' || s[i] == '}' || s[i] == '\t' || s[i] == '\n')
 		{
-			i++;
-			if((s[i]>='a' && s[i]<='z'))
-			{
-				s[i]=s[i]-32;
-			}
+			new_word = 1;
+		}
+		else if (new_word && isalpha(s[i]))
+		{
+			s[i] = toupper(s[i]);
+			new_word = 0;
+		}
+		else
+		{
+			s[i] = tolower(s[i]);
 		}
 	}
 	return (s);
