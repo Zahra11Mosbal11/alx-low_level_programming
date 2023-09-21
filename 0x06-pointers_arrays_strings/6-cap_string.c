@@ -15,7 +15,9 @@ char *cap_string(char *s)
 	while (s[i])
 	{
 		while (!(s[i] >= 'a' && s[i] <= 'z'))
+		{
 			i++;
+		}
 		if (isspace(s[i - 1]) || s[i - 1] == ',' || s[i - 1] == ';'
 		|| s[i - 1] == '.' || s[i - 1] == '!' || s[i - 1] == '?'
 		|| s[i - 1] == '"' || s[i - 1] == '(' || s[i - 1] == ')'
