@@ -10,16 +10,21 @@
 char *rot13(char *s)
 {
 	int i, j;
-	char leet_chars[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-	char leet_replacements[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+	char up[] = "aAbBcCdDeEfFgGhHiIjJkKlLmM";
+	char done[] = "nNoOpPqQrRsStTuUvVwWhHyYzZ";
 
 	for (i = 0; s[i] != '\0'; i++)
 	{
-		for (j = 0;  j < 52; j++)
+		for (j = 0; j < 26; j++)
 		{
-			if (s[i] == leet_chars[j])
+			if (s[i] == up[j])
 			{
-				s[i] = leet_replacements[j];
+				s[i] = done[j];
+				break;
+			}
+			else if (s[i] == done[j])
+			{
+				s[i] = up[j];
 				break;
 			}
 		}
