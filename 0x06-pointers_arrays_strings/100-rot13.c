@@ -9,15 +9,22 @@
 */
 char *rot13(char *s)
 {
-	int i;
+	int i, j;
+	char leet_chars[] = "aAbBcCdDeEfFgGhHiIjJkKlLmM";
+	char leet_replacements[] = "nNoOpPqQrRsStTuUvVwWxXyYzZ";
 
 	for (i = 0; s[i] != '\0'; i++)
 	{
-		if (isalpha(s[i]))
+		for (j = 0;  j < 26; j++)
 		{
-			char base = islower(s[i]) ? 'a' : 'A';
-
-			s[i] = ((s[i] - base + 13) % 26) + base;
+			if (s[i] == leet_chars[j])
+			{
+				s[i] = leet_replacements[j];
+			}
+			else if (s[i] == leet_replacements[j])
+			{
+				s[i] = leet_chars[j];
+			}
 		}
 	}
 	return (s);
