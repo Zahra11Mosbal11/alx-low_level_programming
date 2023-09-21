@@ -10,23 +10,18 @@
 */
 char *cap_string(char *s)
 {
-	int i;
-	int new_word = 1;
+	int i = 0;
 
-	for (i = 0; s[i] != '\0'; i++)
+	while (s[i])
 	{
-		if (isspace(s[i]) || s[i] == ',' || s[i] == ';'
-		|| s[i] == '.' || s[i] == '!' || s[i] == '?'
-		|| s[i] == '"' || s[i] == '(' || s[i] == ')'
-		|| s[i] == '{' || s[i] == '}' || s[i] == '\t' || s[i] == '\n')
-		{
-			new_word = 1;
-		}
-		else if (new_word && isalpha(s[i]))
+		if (isspace(s[i - 1]) || s[i - 1] == ',' || s[i - 1] == ';'
+		|| s[i - 1] == '.' || s[i - 1] == '!' || s[i - 1] == '?'
+		|| s[i - 1] == '"' || s[i - 1] == '(' || s[i - 1] == ')'
+		|| s[i - 1] == '{' || s[i - 1] == '}' || s[i - 1] == '\t' || s[i - 1] == '\n')
 		{
 			s[i] = toupper(s[i]);
-			new_word = 0;
 		}
+		i++;
 	}
 	return (s);
 }
