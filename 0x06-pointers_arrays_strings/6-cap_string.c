@@ -27,10 +27,6 @@ char *cap_string(char *s)
 			s[i] = toupper(s[i]);
 			new_word = 0;
 		}
-		else
-		{
-			s[i] = tolower(s[i]);
-		}
 	}
 	return (s);
 }
