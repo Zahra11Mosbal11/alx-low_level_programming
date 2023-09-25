@@ -10,7 +10,8 @@
 */
 char *_memcpy(char *dest, char *src, unsigned int n)
 {
-	n = strlen(src) + 1;
+	unsigned int length = strlen(src);
+	n = length + 1;
 
 	memcpy(dest, src, n);
 
