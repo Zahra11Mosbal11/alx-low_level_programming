@@ -4,8 +4,7 @@
  * factorial - Entry point
  *
  *@n: the number.
- *Return: -1 if anegatev number and 1 if 1 or 0.
- *Return: n integer
+ *Return: -1 if anegatev number and 1 if 1 or 0 or N
 */
 int factorial(int n)
 {
