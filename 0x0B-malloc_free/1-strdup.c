@@ -20,6 +20,6 @@ char *_strdup(char *str)
 	{
 		return (NULL);
 	}
-	cp = strdup(str);
+	strcpy(cp, str);
 	return (cp);
 }
