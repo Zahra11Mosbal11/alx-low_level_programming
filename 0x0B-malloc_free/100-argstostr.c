@@ -2,7 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 /**
- *  - Entry point
+ * argstostr - Entry point
  *
  *@ac: the number.
  *@av: the string
@@ -20,10 +20,9 @@ char *argstostr(int ac, char **av)
 	}
 	for (i = 0; i < ac; i++)
 	{
-        
 		total_length += strlen(av[i]) + 1;
 	}
-	
+
 	argment = (char *)malloc(total_length + 1);
 
 	if (argment == NULL)
