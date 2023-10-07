@@ -12,20 +12,25 @@
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	char *ptr;
-	size_t destLen = strlen(s1);
+	int i;
+	int len1 = strlen(s1);
+	int len = strlen(s1) + n + 1;
 
 	if (s1 == NULL || s2 == NULL)
 	{
 		return ("");
 	}
-	ptr = malloc(strlen(s1));
+	ptr = malloc(len * sizeof(char));
 
 	if (ptr == NULL)
 	{
 		return (NULL);
 	}
-	strcpy(ptr, s1);
-	strncpy(ptr + destLen, s2, n);
+	for (i = 0; i <= len1; i++)
+	{
+		ptr[i] = s1[i];
+	}
 
+	strncat(ptr, s2, n);
 	return (ptr);
 }
