@@ -20,7 +20,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	while (s1 && s1[len1])
 	{
 		len1++;
-	}	
+	}
 	if (s1 == NULL || s2 == NULL)
 	{
 		return ("");
@@ -39,7 +39,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 
 	for (j = 0; j < N && s2[j] != '\0'; j++)
 	{
-			ptr[i + j] = s2[j];
+		ptr[i + j] = s2[j];
 	}
 	ptr[i + j] = '\0';
 	return (ptr);
