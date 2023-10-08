@@ -12,10 +12,9 @@
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	char *ptr;
-	int i, j;
-	int len1 = (s1 != NULL) ? strlen(s1) : 0;
-	int N = n;
-	int total_len = len1 + n + 1;
+	unsigned int i, j;
+	unsigned int len1 = (s1 != NULL) ? strlen(s1) : 0;
+	unsigned int total_len = len1 + n + 1;
 
 	if (s1 == NULL || s2 == NULL)
 	{
@@ -34,7 +33,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		ptr[i] = s1[i];
 	}
 
-	for (j = 0; j < N && s2[j] != '\0'; j++)
+	for (j = 0; j < n && s2[j] != '\0'; j++)
 	{
 		ptr[i + j] = s2[j];
 	}
