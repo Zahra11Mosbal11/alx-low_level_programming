@@ -25,16 +25,17 @@ void print_strings(const char *separator, const unsigned int n, ...)
 
 		if (str == NULL)
 		{
-			str = "(nil)";
+			printf("(nil)");
 		}
-		else if (i == (n - 1))
+		else
 		{
-			printf("%s\n", str);
-			va_end(string);
-			return;
+			printf("%s", str);
 		}
-		printf("%s%s", str, separator);
+		if (i != (n - 1))
+		{
+			printf("%s", separator);
+		}
 	}
-
+	printf("\n");
 	va_end(string);
 }
