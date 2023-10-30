@@ -4,14 +4,23 @@
 #include <sys/stat.h>
 /**
  * error_handil - start
- * @code: the return code
- * @masg: the error masseg
+ * @file_from: file_from.
+ * @file_to: file_to.
+ * @argv: arguments vector.
  * Return: void
  */
-void error_handil(int code, char *masg)
+void error_handil(int file_from, int file_to, char *argv[])
 {
-	dprintf(STDERR_FILENO, "%s\n", masg);
-	exit(code);
+	if (file_from == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+		exit(98);
+	}
+	if (file_to == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+		exit(99);
+	}
 }
 /**
  * main - start
@@ -26,23 +35,22 @@ int main(int argc, char *argv[])
 	char buf[BUFFER_SIZE];
 
 	if (argc != 3)
-		error_handil(97, "Usage: cp file_from file_to");
+	{
+		dprintf(STDERR_FILENO, "%s\n", "Usage: cp file_from file_to");
+		exit(97);
+	}
 	fs = open(argv[1], O_RDONLY);
-	if (fs == -1)
-		error_handil(98, "Error: Can't read from file");
 	fd = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
-	if (fd == -1)
-		error_handil(99, "Error: Can't write to");
-	
+	error_handil(fs, fd, argv);
 	readf = 1024;
 	while (readf == 1024)
 	{
 		readf = read(fs, buf, BUFFER_SIZE);
 		if (readf == -1)
-			error_handil(98, "Error: Can't read from file");
+			error_handil(-1, 0, argv);
 		writef = write(fd, buf, readf);
 		if (writef == -1 || writef != readf)
-			error_handil(99, "Error: Can't writ to");
+			error_handil(0, -1, argv);
 	}
 	if (close(fs) == -1)
 	{
