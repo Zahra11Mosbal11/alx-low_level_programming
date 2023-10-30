@@ -30,11 +30,14 @@ int main(int argc, char *argv[])
 	fs = open(argv[1], O_RDONLY);
 	if (fs == -1)
 		error_handil(98, "Error: Can't read from file");
-	fd = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, 0664);
+	fd = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	if (fd == -1)
 		error_handil(99, "Error: Can't write to");
-	while ((readf = read(fs, buf, BUFFER_SIZE)) > 0)
+	
+	readf = 1024;
+	while (readf == 1024)
 	{
+		readf = read(fs, buf, BUFFER_SIZE);
 		if (readf == -1)
 			error_handil(98, "Error: Can't read from file");
 		writef = write(fd, buf, readf);
