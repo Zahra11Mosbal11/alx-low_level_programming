@@ -1,16 +1,16 @@
 #include "lists.h"
 /**
- * delete_dnodeint_at_index - deletes the node at index
+ * delete_dnodeint_at_index - deletes
  * @head: the node
  * @index: the index
- * Returns: 1 if it succeeded, -1 if it failed
+ * Return: 1 if it succeeded, -1 if it failed
  */
 int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
 	dlistint_t *node = *head, *curnt = NULL;
 	unsigned int i = 0;
 
-	if(!*head)
+	if (!*head)
 		return (-1);
 	if (index == 0)
 	{
@@ -30,7 +30,7 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 	node->next = curnt->next;
 	if (curnt->next)
 		curnt->next->prev = node;
-	
+
 	free(curnt);
 	return (1);
 }
