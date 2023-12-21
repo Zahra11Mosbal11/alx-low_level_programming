@@ -13,7 +13,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 
 	if (!ht || !key || !value)
 		return (0);
-	
 	id = key_index((unsigned char *)key, ht->size);
 	curnt = ht->array[id];
 	while (curnt)
@@ -26,7 +25,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 				return (0);
 			return (1);
 		}
-
 		curnt = curnt->next;
 	}
 	new = malloc(sizeof(hash_node_t));
@@ -45,7 +43,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		free(new);
 		return (0);
 	}
-
 	new->next = ht->array[id];
 	ht->array[id] = new->next;
 	return (1);
