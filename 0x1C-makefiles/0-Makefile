@@ -1,0 +1,6 @@
+CFLAGS = -Wall -Werror -Wextra -pedantic
+
+all: school
+
+school:
+	gcc ${CFLAGS} -o school main.c school.c
